@@ -17,3 +17,9 @@ data files - chicago.cvs
 ### Credits
 Udacity lessons on git command line and guthub.
 Had to google "stage changes" and read documentation only to realize what I did wrong
+
+This is the third edit of the file because the instruction said to do this 3 times. :-)
+
+
+And in part 3 we are asked to change this file again.
+I also added comments to the bikeshare.py file.
