@@ -1,15 +1,18 @@
 ### Date created
-Include the date you created this project and README file.
+March 23, 2019
 
 ### Project Title
-Replace the Project Title
+Project Bike Share Data
 
 ### Description
-Describe what your project is about and what it does
+This is the bike share data project written in python.
+The code allows the user to analyze the bike share data from several major cities.
 
 ### Files used
-Include the files used
+python code - bikeshare_2.py
+data files - chicago.cvs
+           - new_york_city.cvs
+           - washington.cvs
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Udacity lessons on git command line and guthub.
