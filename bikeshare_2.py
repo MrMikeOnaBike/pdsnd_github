@@ -1,3 +1,5 @@
+# this is the code I submitted for the bikesharing project on Udacity
+
 import time
 import pandas as pd
 import numpy as np
@@ -14,12 +16,12 @@ DAYS = ['all', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday',
 
 
 def get_filters():
- 
+
     # let's do this....  :-)
     # get user input (city, month, and day)
-    
+
     print(MONTHS)
-    
+
     print('Hello! Let\'s explore some US bikeshare data!')
     print('We have data for three major cities; Chicogo, New York, or Washington')
 
@@ -29,29 +31,29 @@ def get_filters():
             city = input('Which city data do you want to view? \n> ').lower()
             if city in ['chicago', 'new york', 'washington']:
                 break
-    
+
         # get user input for month (all, january, february, ... , june)
         print('Which month would you like the data for? (enter ALL for all the data)')
         while True:
             month = input('Enter abreviated month (January = jan) \n>').lower()
             if month in MONTHS:
                 break
-    
+
         # get user input for day of week (all, monday, tuesday, ... sunday)
         print('Which day of the week would you like the data for? (enter ALL for all the data)')
         while True:
             day = input('Enter the day (i.e. Monday) \n>').lower()
             if day in DAYS:
                 break
-    
+
         print('And we are set!  So we are going to fetch the data for ' + city)
         print(' and filter ' + month.upper() + ' for the MONTHS field,')
         print(' and filter ' + day.upper() + ' for the DAYS field.')
-    
+
         response = input('Is that correct? Y/N \n> ').lower()
         if response == 'y':
             break
-        
+
     print('-'*40)
     return city, month, day
 
@@ -177,21 +179,21 @@ def user_stats(df):
     # Display counts of user types
     print("Counts of user types:\n")
     user_counts = df['User Type'].value_counts()
-    
-    # iteratively print out the total numbers of user types 
+
+    # iteratively print out the total numbers of user types
     for index, user_count in enumerate(user_counts):
         print("  {}: {}".format(user_counts.index[index], user_count))
-    
+
     print()
 
     # Display counts of gender
     if 'Gender' in df.columns:
         print("Counts of gender:\n")
         gender_counts = df['Gender'].value_counts()
-        # iteratively print out the total numbers of genders 
+        # iteratively print out the total numbers of genders
         for index,gender_count   in enumerate(gender_counts):
             print("  {}: {}".format(gender_counts.index[index], gender_count))
-    
+
         print()
 
     # Display earliest, most recent, and most common year of birth
@@ -213,7 +215,7 @@ def user_stats(df):
 
 
 def display_data(df):
-    
+
     """Displays raw bikeshare data."""
 
     response = input('\nWould you like to see the particular user trip data? Y/N \n> ')
@@ -221,9 +223,9 @@ def display_data(df):
         number_of_rows = int(input('\nHow many rows of the data do you want to view (max 10) ? \n> '))
         if number_of_rows > 10:
             number_of_rows = 10
-            
+
         # retrieve and convert data to json format
-        # split each json row data 
+        # split each json row data
         row_data = df.iloc[0: number_of_rows].to_json(orient='records', lines=True).split('\n')
         for row in row_data:
             # pretty print each user data
@@ -233,23 +235,23 @@ def display_data(df):
 
 
 def getFullMonth(most_common_month):
-    full_month = {1: " January", 
-          2: " February", 
-          3: " March", 
+    full_month = {1: " January",
+          2: " February",
+          3: " March",
           4: " April",
-          5: " May", 
-          6: " June", 
-          7: " July", 
+          5: " May",
+          6: " June",
+          7: " July",
           8: " August",
-          9: " September", 
-          10: " October", 
-          11: " November", 
+          9: " September",
+          10: " October",
+          11: " November",
           12: " December"
           }
     return full_month.get(most_common_month, "All")
 
 def main():
-    
+
     # run through the rpogram as many times as the user wants
     while True:
         #go get the city, month and day that the user wants data for
@@ -259,19 +261,19 @@ def main():
 
         # go get statistics on the most frequent times of travel
         time_stats(df)
-        
+
         #go get statistics on the most popular stations and trips
         station_stats(df)
-        
-        # go get statistics on the total and average trip durations 
+
+        # go get statistics on the total and average trip durations
         trip_duration_stats(df)
-        
+
         #go get stats on the bikeshare users
         user_stats(df)
 
         #see if the user wants to view some of the raw data - i mean, who wouldn't? right?
-        display_data(df)            
-        
+        display_data(df)
+
         #see if the user wants more data. if not end program
         restart = input('\n\n Would you like to restart? Y/N \n')
         if restart.lower() != 'y':
@@ -280,6 +282,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
-    
-    
