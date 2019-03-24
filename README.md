@@ -16,3 +16,4 @@ data files - chicago.cvs
 
 ### Credits
 Udacity lessons on git command line and guthub.
+Had to google "stage changes" and read documentation only to realize what I did wrong
